@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PokeApiTypeFull } from "../../models";
 import { getAllTypes } from "../../services";
 
-export const useTypesData = () => {
+export const useTypesData = (): [PokeApiTypeFull[], boolean, boolean] => {
 	const [types, setTypes] = useState<PokeApiTypeFull[]>([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);

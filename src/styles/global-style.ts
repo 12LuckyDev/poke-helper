@@ -21,5 +21,6 @@ export const GlobalStyle = createGlobalStyle`
         background-color: #282c34;
         min-height: 100vh;
         color: white;
+        overflow: auto;
     }
 `;
