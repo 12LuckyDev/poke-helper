@@ -5,6 +5,16 @@ import { useTypesData } from "./types-diagram.hook";
 
 export const TypesDiagram: FC = () => {
 	const [types] = useTypesData();
-
-	return <main>{isArray(types, false) && <CircleDiagram data={types} />}</main>;
+	console.log(types);
+	return (
+		<main>
+			{isArray(types, false) && (
+				<CircleDiagram
+					data={types}
+					keyExtractor={({ name }) => name}
+					render={(el) => <p>{el.name}</p>}
+				/>
+			)}
+		</main>
+	);
 };
