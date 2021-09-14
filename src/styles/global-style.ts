@@ -23,4 +23,8 @@ export const GlobalStyle = createGlobalStyle`
         color: white;
         overflow: auto;
     }
+
+    * {
+	    box-sizing: border-box;
+    }
 `;
