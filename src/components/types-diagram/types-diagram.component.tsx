@@ -1,7 +1,9 @@
 import { isArray, removeAt, add } from "@12luckydev/utils";
 import { FC, useState } from "react";
 import { CircleDiagram } from "../circle-diagram";
-import { TypeIcon } from "./types-diagram-icon.component";
+import { Row } from "../common-styled";
+import { SelectedType } from "./selected-type/selected-type.component";
+import { TypeIcon } from "./types-diagram-icon/types-diagram-icon.component";
 import { useTypesData } from "./types-diagram.hook";
 
 export const TypesDiagram: FC = () => {
@@ -24,9 +26,12 @@ export const TypesDiagram: FC = () => {
 
 	return (
 		<main>
-			{selected.map((s) => (
-				<p key={s}>{s}</p>
-			))}
+			<Row setHeight="50px">
+				{selected.map((s) => (
+					<SelectedType name={s} key={s} onCancel={onTypeClick} />
+				))}
+			</Row>
+
 			{isArray(types, false) && (
 				<CircleDiagram
 					data={types}

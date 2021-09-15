@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { getIconAndColor } from "./type-diagram.utils";
+import { getIconAndColor } from "../type-diagram.utils";
 import { IconWrapper } from "./types-diagram-icon-wraper.styled";
 
 interface TypeIconProps {
