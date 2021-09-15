@@ -1,4 +1,4 @@
-import { isArray, removeAt } from "@12luckydev/utils";
+import { isArray, removeAt, add } from "@12luckydev/utils";
 import { FC, useState } from "react";
 import { CircleDiagram } from "../circle-diagram";
 import { TypeIcon } from "./types-diagram-icon.component";
@@ -14,12 +14,19 @@ export const TypesDiagram: FC = () => {
 		if (isTypeSelected(name)) {
 			setSelected(removeAt(selected, selected.indexOf(name)));
 		} else {
-			setSelected([...selected, name]);
+			if (selected.length > 1) {
+				setSelected(add(removeAt(selected, 0), name));
+			} else {
+				setSelected(add(selected, name));
+			}
 		}
 	};
 
 	return (
 		<main>
+			{selected.map((s) => (
+				<p key={s}>{s}</p>
+			))}
 			{isArray(types, false) && (
 				<CircleDiagram
 					data={types}
