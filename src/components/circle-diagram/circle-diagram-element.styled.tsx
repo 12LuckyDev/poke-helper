@@ -5,12 +5,14 @@ interface CircleDiagramElementProps extends React.HTMLProps<HTMLDivElement> {
 }
 
 export const CircleDiagramElement = styled.div<CircleDiagramElementProps>`
+	--element-size: 50px;
 	position: absolute;
 	left: calc(50% - 25px);
 	top: calc(50% - 25px);
-	height: 50px;
-	width: 50px;
-	transform: ${({ rotateDeg }) => `rotate(${rotateDeg}deg)`} translateX(250px)
+	height: var(--element-size);
+	width: var(--element-size);
+	transform: ${({ rotateDeg }) => `rotate(${rotateDeg}deg)`}
+		translateX(calc((var(--size) - var(--element-size)) / 2))
 		${({ rotateDeg }) => `rotate(-${rotateDeg}deg)`};
 `;
 // rotate, move in new direction, then derotate because you don't want rotated children
