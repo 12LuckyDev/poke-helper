@@ -7,9 +7,14 @@ interface SelectedTypeWrapperProps extends React.HTMLProps<HTMLDivElement> {
 export const SelectedTypeWrapper = styled.div<SelectedTypeWrapperProps>`
 	height: 50px;
 	width: 50%;
+	padding: 0 1rem;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	background-color: ${({ backgroundColor }) => backgroundColor};
+	font-size: 2.5rem;
+	text-transform: capitalize;
+	font-weight: bold;
 `;
 
 export const SelectedTypeIcoWrapper = styled.div`
