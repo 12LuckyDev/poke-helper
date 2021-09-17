@@ -1,13 +1,7 @@
 import { isFunc } from "@12luckydev/utils";
 import { PropsWithChildren } from "react";
-import styled from "styled-components";
 import { CircleDiagramElement } from "./circle-diagram-element.styled";
 import { CircleDiagramWrapper } from "./circle-diagram-wrapper.styled";
-
-const ArrowContainer = styled.svg`
-	width: 100%;
-	height: 100%;
-`;
 
 interface CircleDiagramProps<T> {
 	data: T[];
@@ -28,12 +22,6 @@ export const CircleDiagram = <T,>({
 					{isFunc(render) && render?.(el)}
 				</CircleDiagramElement>
 			))}
-			<ArrowContainer viewBox="0 0 100 100">
-				<path
-					d="M0,50 100,50"
-					style={{ stroke: "red", strokeWidth: "1.25px", fill: "none" }}
-				/>
-			</ArrowContainer>
 		</CircleDiagramWrapper>
 	);
 };
