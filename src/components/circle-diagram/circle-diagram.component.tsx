@@ -13,6 +13,7 @@ export const CircleDiagram = <T,>({
 	data,
 	keyExtractor,
 	render,
+	children,
 }: PropsWithChildren<CircleDiagramProps<T>>) => {
 	const step = data.length > 0 ? 360 / data.length : 0;
 	return (
@@ -22,6 +23,7 @@ export const CircleDiagram = <T,>({
 					{isFunc(render) && render?.(el)}
 				</CircleDiagramElement>
 			))}
+			{children}
 		</CircleDiagramWrapper>
 	);
 };
