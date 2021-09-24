@@ -1,9 +1,8 @@
 import { isArray, removeAt, add } from "@12luckydev/utils";
 import { FC, useState } from "react";
 import { CircleDiagram } from "../circle-diagram";
-import { Row } from "../common-styled";
+import { CircleDiagramIndicator } from "../circle-diagram/circle-diagram-indicator.styled";
 import { DiagramSelectedTypes } from "./diagram-selected-types/diagram-selected-types.component";
-import { SelectedType } from "./selected-types-row/selected-type.component";
 import { SelectedTypesRow } from "./selected-types-row/selected-types-row.component";
 import { TypeIcon } from "./types-diagram-icon/types-diagram-icon.component";
 import { useTypesData } from "./types-diagram.hook";
@@ -42,6 +41,7 @@ export const TypesDiagram: FC = () => {
 						/>
 					)}
 				>
+					<CircleDiagramIndicator step={0} index={0}></CircleDiagramIndicator>
 					<DiagramSelectedTypes selected={selected} />
 				</CircleDiagram>
 			)}
