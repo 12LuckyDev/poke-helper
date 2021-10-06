@@ -6,10 +6,15 @@ import { DiagramSelectedTypes } from "./diagram-selected-types/diagram-selected-
 import { SelectedTypesRow } from "./selected-types-row/selected-types-row.component";
 import { TypeIcon } from "./types-diagram-icon/types-diagram-icon.component";
 import { useSelectedType, useTypesData } from "./types-diagram.hooks";
+import { DamageRelationsIndicator } from "./damage-relations-indicator/damage-relations-indicator.component";
+
+// TODO continue here
 
 export const TypesDiagram: FC = () => {
 	const [types] = useTypesData();
 	const [selected, isTypeSelected, handleTypeSelection] = useSelectedType();
+
+	console.log(types);
 
 	return (
 		<main>
@@ -27,7 +32,15 @@ export const TypesDiagram: FC = () => {
 						/>
 					)}
 				>
-					<CircleDiagramIndicator step={0} index={0}></CircleDiagramIndicator>
+					<CircleDiagramIndicator step={0} index={0}>
+						<DamageRelationsIndicator direction="left">
+							aaa
+						</DamageRelationsIndicator>
+						<DamageRelationsIndicator direction="right">
+							bbb
+						</DamageRelationsIndicator>
+					</CircleDiagramIndicator>
+
 					<DiagramSelectedTypes selected={selected} />
 				</CircleDiagram>
 			)}
