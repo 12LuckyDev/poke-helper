@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const CircleDiagramWrapper = styled.div`
 	--size: calc(100vw - 50px);
+	--element-size: 50px;
+
 	margin: 25px;
 
 	@media (orientation: landscape) {

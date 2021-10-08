@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { Row } from "../../common-styled";
+import { Shield, Sword } from "../../../icons";
 import {
 	DamageRelationsIndicatorArrowLeft,
 	DamageRelationsIndicatorArrowRight,
@@ -28,6 +28,7 @@ export const DamageRelationsIndicator: FC<DamageRelationsIndicatorProps> = ({
 				<>
 					<DamageRelationsIndicatorArrowLeft />
 					<DamageRelationsIndicatorBody>
+						<Shield />
 						{children}
 					</DamageRelationsIndicatorBody>
 				</>
@@ -35,6 +36,7 @@ export const DamageRelationsIndicator: FC<DamageRelationsIndicatorProps> = ({
 			{direction === "right" && (
 				<>
 					<DamageRelationsIndicatorBody>
+						<Sword />
 						{children}
 					</DamageRelationsIndicatorBody>
 					<DamageRelationsIndicatorArrowRight />

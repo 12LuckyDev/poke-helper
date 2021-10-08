@@ -32,7 +32,7 @@ export const TypesDiagram: FC = () => {
 						/>
 					)}
 				>
-					<CircleDiagramIndicator step={0} index={0}>
+					<CircleDiagramIndicator step={20} index={0}>
 						<DamageRelationsIndicator direction="left">
 							aaa
 						</DamageRelationsIndicator>
@@ -40,7 +40,14 @@ export const TypesDiagram: FC = () => {
 							bbb
 						</DamageRelationsIndicator>
 					</CircleDiagramIndicator>
-
+					<CircleDiagramIndicator step={20} index={1}>
+						<DamageRelationsIndicator direction="left">
+							aaa
+						</DamageRelationsIndicator>
+						<DamageRelationsIndicator direction="right">
+							bbb
+						</DamageRelationsIndicator>
+					</CircleDiagramIndicator>
 					<DiagramSelectedTypes selected={selected} />
 				</CircleDiagram>
 			)}

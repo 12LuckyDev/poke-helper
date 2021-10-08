@@ -12,7 +12,6 @@ const getTransformCSS = (step: number, index: number) => {
 };
 
 export const CircleDiagramElement = styled.div<CircleDiagramRotableProps>`
-	--element-size: 50px;
 	position: absolute;
 	left: calc(50% - 25px);
 	top: calc(50% - 25px);
