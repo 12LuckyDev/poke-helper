@@ -4,4 +4,5 @@ export type TypeDiagramStateType = {
 	types: PokeApiTypeFull[];
 	loading: boolean;
 	error: boolean;
+	selected: string[];
 };

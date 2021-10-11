@@ -9,10 +9,11 @@ const initialState: TypeDiagramStateType = {
 	types: [],
 	loading: false,
 	error: false,
+	selected: [],
 };
 
 export const useTypeDiagramData = (): TypeDiagramHookResult => {
-	const [{ types, loading, error }, dispatch] = useReducer(
+	const [{ types, loading, error, selected }, dispatch] = useReducer(
 		typeDiagramDataReducer,
 		initialState
 	);
@@ -31,5 +32,17 @@ export const useTypeDiagramData = (): TypeDiagramHookResult => {
 		getTypes();
 	}, []);
 
-	return { types, loading, error };
+	const isTypeSelected = (name: string) => selected.includes(name);
+
+	const handleTypeSelection = (name: string) =>
+		dispatch({ type: ReducerAction.CHANGE_SELECTED, payload: name });
+
+	return {
+		types,
+		loading,
+		error,
+		selected,
+		isTypeSelected,
+		handleTypeSelection,
+	};
 };

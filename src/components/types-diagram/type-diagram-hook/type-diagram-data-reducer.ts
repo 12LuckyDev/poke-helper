@@ -1,12 +1,13 @@
 import { ReducerAction } from "./types/type-diagram-reducer-action";
 import { ActionType } from "./types/type-diagram-reducer-action-type";
 import { TypeDiagramStateType } from "./types/type-diagram-state-type";
+import { changeTypeSelection } from "./utils/change-type-selection";
 
 export const typeDiagramDataReducer = (
 	state: TypeDiagramStateType,
-	{ type, payload }: ActionType
+	action: ActionType
 ) => {
-	switch (type) {
+	switch (action.type) {
 		case ReducerAction.GET_DATA_START:
 			return {
 				...state,
@@ -18,7 +19,7 @@ export const typeDiagramDataReducer = (
 				...state,
 				loading: false,
 				error: false,
-				types: payload ?? [],
+				types: action.payload,
 			};
 		case ReducerAction.SET_DATA_ERROR:
 			return {
@@ -26,6 +27,11 @@ export const typeDiagramDataReducer = (
 				loading: false,
 				error: true,
 				types: [],
+			};
+		case ReducerAction.CHANGE_SELECTED:
+			return {
+				...state,
+				selected: changeTypeSelection(state.selected, action.payload),
 			};
 	}
 };

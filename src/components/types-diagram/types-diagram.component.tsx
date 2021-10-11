@@ -5,14 +5,13 @@ import { CircleDiagramIndicator } from "../circle-diagram/circle-diagram-indicat
 import { DiagramSelectedTypes } from "./diagram-selected-types/diagram-selected-types.component";
 import { SelectedTypesRow } from "./selected-types-row/selected-types-row.component";
 import { TypeIcon } from "./types-diagram-icon/types-diagram-icon.component";
-import { useSelectedType } from "./types-diagram.hooks";
 import { DamageRelationsIndicator } from "./damage-relations-indicator/damage-relations-indicator.component";
 import { calcDamageRelations } from "./type-diagram.utils";
 import { useTypeDiagramData } from "./type-diagram-hook/use-type-diagram-data.";
 
 export const TypesDiagram: FC = () => {
-	const { types } = useTypeDiagramData();
-	const [selected, isTypeSelected, handleTypeSelection] = useSelectedType();
+	const { types, selected, isTypeSelected, handleTypeSelection } =
+		useTypeDiagramData();
 
 	console.log(types, calcDamageRelations(types, selected));
 
