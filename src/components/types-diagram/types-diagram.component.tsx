@@ -7,14 +7,13 @@ import { SelectedTypesRow } from "./selected-types-row/selected-types-row.compon
 import { TypeIcon } from "./types-diagram-icon/types-diagram-icon.component";
 import { useSelectedType, useTypesData } from "./types-diagram.hooks";
 import { DamageRelationsIndicator } from "./damage-relations-indicator/damage-relations-indicator.component";
-
-// TODO continue here
+import { calcDamageRelations } from "./type-diagram.utils";
 
 export const TypesDiagram: FC = () => {
 	const [types] = useTypesData();
 	const [selected, isTypeSelected, handleTypeSelection] = useSelectedType();
 
-	console.log(types);
+	console.log(types, calcDamageRelations(types, selected));
 
 	return (
 		<main>

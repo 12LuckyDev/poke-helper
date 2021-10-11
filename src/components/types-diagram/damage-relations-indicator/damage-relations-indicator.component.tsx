@@ -16,6 +16,10 @@ const ArrowWrapper = styled.div`
 	--arrow-size: calc(var(--wrapper-height) / 2 - var(--arrow-margin) * 2);
 
 	display: flex;
+
+	svg {
+		filter: invert(100%);
+	}
 `;
 
 export const DamageRelationsIndicator: FC<DamageRelationsIndicatorProps> = ({
