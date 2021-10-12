@@ -1,6 +1,7 @@
 import { ReducerAction } from "./types/type-diagram-reducer-action";
 import { ActionType } from "./types/type-diagram-reducer-action-type";
 import { TypeDiagramStateType } from "./types/type-diagram-state-type";
+import { calcDamageRelations } from "./utils/calc-damage-relations";
 import { changeTypeSelection } from "./utils/change-type-selection";
 
 export const typeDiagramDataReducer = (
@@ -29,9 +30,12 @@ export const typeDiagramDataReducer = (
 				types: [],
 			};
 		case ReducerAction.CHANGE_SELECTED:
+			const selected = changeTypeSelection(state.selected, action.payload);
+			const damageRelations = calcDamageRelations(state.types, selected);
 			return {
 				...state,
-				selected: changeTypeSelection(state.selected, action.payload),
+				selected,
+				damageRelations,
 			};
 	}
 };

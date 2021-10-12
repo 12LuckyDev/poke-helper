@@ -3,20 +3,10 @@ import { getAllTypes } from "../../../services";
 import { typeDiagramDataReducer } from "./type-diagram-data-reducer";
 import { TypeDiagramHookResult } from "./types/type-diagram-hook-result";
 import { ReducerAction } from "./types/type-diagram-reducer-action";
-import { TypeDiagramStateType } from "./types/type-diagram-state-type";
-
-const initialState: TypeDiagramStateType = {
-	types: [],
-	loading: false,
-	error: false,
-	selected: [],
-};
+import { initialState } from "./types/type-diagram-state-type";
 
 export const useTypeDiagramData = (): TypeDiagramHookResult => {
-	const [{ types, loading, error, selected }, dispatch] = useReducer(
-		typeDiagramDataReducer,
-		initialState
-	);
+	const [state, dispatch] = useReducer(typeDiagramDataReducer, initialState);
 
 	useEffect(() => {
 		const getTypes = async () => {
@@ -32,16 +22,13 @@ export const useTypeDiagramData = (): TypeDiagramHookResult => {
 		getTypes();
 	}, []);
 
-	const isTypeSelected = (name: string) => selected.includes(name);
+	const isTypeSelected = (name: string) => state.selected.includes(name);
 
 	const handleTypeSelection = (name: string) =>
 		dispatch({ type: ReducerAction.CHANGE_SELECTED, payload: name });
 
 	return {
-		types,
-		loading,
-		error,
-		selected,
+		state,
 		isTypeSelected,
 		handleTypeSelection,
 	};
