@@ -9,9 +9,7 @@ const mergeMultipliers = (
 	first: DamageMultiplierType | null,
 	second: DamageMultiplierType | null
 ) => {
-	const firstMultiplier: number = first ?? 1;
-	const secondMultiplier: number = second ?? 1;
-	const combinedMultiplier = firstMultiplier * secondMultiplier;
+	const combinedMultiplier = (first ?? 1) * (second ?? 1);
 	return combinedMultiplier !== 1
 		? (combinedMultiplier as DamageMultiplierType)
 		: null;
@@ -52,19 +50,15 @@ export const calcDamageRelations = (
 ): DamageRelation[] => {
 	const [firstType, secondType] = selected;
 
-	let firstTypeResult: DamageRelation[] = [];
-	if (!!firstType) {
-		firstTypeResult = mapPokeApiDamageRelationsToDamageRelationArray(
+	return mergeDamageRelations(
+		mapPokeApiDamageRelationsToDamageRelationArray(
 			types.find((t) => t.name === firstType)?.damage_relations
-		);
-	}
-
-	if (!!secondType) {
-		const secondTypeResult = mapPokeApiDamageRelationsToDamageRelationArray(
+		),
+		mapPokeApiDamageRelationsToDamageRelationArray(
 			types.find((t) => t.name === secondType)?.damage_relations
-		);
-		return mergeDamageRelations(firstTypeResult, secondTypeResult);
-	}
-
-	return firstTypeResult;
+		)
+	).map((dmg) => ({
+		...dmg,
+		typeIndex: types.findIndex(({ name }) => name === dmg.toType),
+	}));
 };

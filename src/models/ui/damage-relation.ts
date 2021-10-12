@@ -4,4 +4,5 @@ export interface DamageRelation {
 	toType: string;
 	attackDamageMultiplier: DamageMultiplierType | null;
 	defenceDamageMultiplier: DamageMultiplierType | null;
+	typeIndex?: number;
 }
