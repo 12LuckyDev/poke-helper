@@ -1,15 +1,14 @@
 import { FC } from "react";
 import { CircleDiagram } from "../circle-diagram";
-import { CircleDiagramIndicator } from "../circle-diagram/circle-diagram-indicator.styled";
 import { DiagramSelectedTypes } from "./diagram-selected-types/diagram-selected-types.component";
 import { SelectedTypesRow } from "./selected-types-row/selected-types-row.component";
 import { TypeIcon } from "./types-diagram-icon/types-diagram-icon.component";
-import { DamageRelationsIndicator } from "./damage-relations-indicator/damage-relations-indicator.component";
 import { useTypeDiagramData } from "./type-diagram-hook/use-type-diagram-data.";
+import { DamageRelationsIndicators } from "./damage-relations-indicator/damage-relations-indicators.component";
 
 export const TypesDiagram: FC = () => {
 	const { state, isTypeSelected, handleTypeSelection } = useTypeDiagramData();
-	const { types, selected } = state;
+	const { types, selected, damageRelations } = state;
 	return (
 		<main>
 			<SelectedTypesRow selected={selected} onCancel={handleTypeSelection} />
@@ -25,23 +24,11 @@ export const TypesDiagram: FC = () => {
 							isSelected={isTypeSelected}
 						/>
 					)}
+					handsData={damageRelations}
+					handsIndexKey="typeIndex"
+					handsKeyExtractor={({ toType }) => toType}
+					renderHands={(el) => <DamageRelationsIndicators relation={el} />}
 				>
-					<CircleDiagramIndicator step={20} index={0}>
-						<DamageRelationsIndicator direction="left">
-							aaa
-						</DamageRelationsIndicator>
-						<DamageRelationsIndicator direction="right">
-							bbb
-						</DamageRelationsIndicator>
-					</CircleDiagramIndicator>
-					<CircleDiagramIndicator step={20} index={1}>
-						<DamageRelationsIndicator direction="left">
-							aaa
-						</DamageRelationsIndicator>
-						<DamageRelationsIndicator direction="right">
-							bbb
-						</DamageRelationsIndicator>
-					</CircleDiagramIndicator>
 					<DiagramSelectedTypes selected={selected} />
 				</CircleDiagram>
 			}

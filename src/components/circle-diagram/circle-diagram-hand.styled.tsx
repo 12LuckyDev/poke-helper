@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { CircleDiagramRotableProps } from "./common/circle-diagram-rotable.props";
 import { calcRotateDeg } from "./common/circle-diagram-rotable.utils";
 
-export const CircleDiagramIndicator = styled.div<CircleDiagramRotableProps>`
+export const CircleDiagramHand = styled.div<CircleDiagramRotableProps>`
 	--wrapper-height: 40px;
 	--wrapper-width: calc(38% - var(--element-size));
 
