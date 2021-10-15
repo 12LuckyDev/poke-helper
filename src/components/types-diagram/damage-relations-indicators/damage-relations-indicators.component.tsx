@@ -9,10 +9,6 @@ interface DamageRelationsIndicatorProps {
 	relation: DamageRelation;
 }
 
-export interface IndicatorProps extends React.HTMLProps<HTMLDivElement> {
-	backgroundColor: string;
-}
-
 export const DamageRelationsIndicators: FC<DamageRelationsIndicatorProps> = ({
 	relation,
 }) => {

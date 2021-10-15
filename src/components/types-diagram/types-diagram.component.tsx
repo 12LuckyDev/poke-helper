@@ -4,7 +4,7 @@ import { DiagramSelectedTypes } from "./diagram-selected-types/diagram-selected-
 import { SelectedTypesRow } from "./selected-types-row/selected-types-row.component";
 import { TypeIcon } from "./types-diagram-icon/types-diagram-icon.component";
 import { useTypeDiagramData } from "./type-diagram-hook/use-type-diagram-data.";
-import { DamageRelationsIndicators } from "./damage-relations-indicator/damage-relations-indicators.component";
+import { DamageRelationsIndicators } from "./damage-relations-indicators/damage-relations-indicators.component";
 
 export const TypesDiagram: FC = () => {
 	const { state, isTypeSelected, handleTypeSelection } = useTypeDiagramData();

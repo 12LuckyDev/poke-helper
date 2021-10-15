@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components";
+import { TypeColorProps } from "../common/type-color.props";
 
-interface IconWrapperProps extends React.HTMLProps<HTMLDivElement> {
-	backgroundColor: string;
+interface IconWrapperProps
+	extends React.HTMLProps<HTMLDivElement>,
+		TypeColorProps {
 	selected?: boolean;
 }
 
