@@ -6,6 +6,13 @@ import { TypeIcon } from "./types-diagram-icon/types-diagram-icon.component";
 import { useTypeDiagramData } from "./type-diagram-hook/use-type-diagram-data.";
 import { DamageRelationsIndicators } from "./damage-relations-indicators/damage-relations-indicators.component";
 
+// TODO
+// - Make selectable options with:
+// - attact - only one type selectable - shows attack bonusses
+// - defense - 2 types selectable - show combinantion weakness
+//
+// - fix center indicator font sizes on phones
+
 export const TypesDiagram: FC = () => {
 	const { state, isTypeSelected, handleTypeSelection } = useTypeDiagramData();
 	const { types, selected, damageRelations } = state;

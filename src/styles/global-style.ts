@@ -15,6 +15,7 @@ export const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         font-size: 14px;
         font-size: 1.4rem;
+        user-select: none;
     }
 
     main {

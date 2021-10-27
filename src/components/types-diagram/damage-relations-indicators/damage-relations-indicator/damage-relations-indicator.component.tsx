@@ -1,7 +1,9 @@
 import { FC } from "react";
-import { Shield, Sword } from "../../../../icons";
 import { DamageRelation } from "../../../../models";
-import { getIconAndColor } from "../../type-diagram.utils";
+import {
+	getDamageRelationString,
+	getIconAndColor,
+} from "../../type-diagram.utils";
 import { DamageIndicatorWrapper } from "./damage-indicator-wrapper.styled";
 import { DamageRelationsIndicatorBody } from "./damage-relations-indicator-body.styled";
 import {
@@ -17,11 +19,14 @@ export const DamageAttackIndicator: FC<DamageIndicatorProps> = ({
 	relation,
 }) => {
 	const { color } = getIconAndColor(relation.toType);
+	const relationString = getDamageRelationString(
+		relation.attackDamageMultiplier
+	);
 
 	return (
-		<DamageIndicatorWrapper>
+		<DamageIndicatorWrapper pushToEnd={true}>
 			<DamageRelationsIndicatorBody backgroundColor={color}>
-				<Sword />
+				<span> {relationString}</span>
 			</DamageRelationsIndicatorBody>
 			<IndicatorArrowRight backgroundColor={color} />
 		</DamageIndicatorWrapper>
@@ -32,12 +37,15 @@ export const DamageDefenceIndicator: FC<DamageIndicatorProps> = ({
 	relation,
 }) => {
 	const { color } = getIconAndColor(relation.toType);
+	const relationString = getDamageRelationString(
+		relation.defenceDamageMultiplier
+	);
 
 	return (
 		<DamageIndicatorWrapper>
 			<IndicatorArrowLeft backgroundColor={color} />
 			<DamageRelationsIndicatorBody backgroundColor={color}>
-				<Shield />
+				<span> {relationString}</span>
 			</DamageRelationsIndicatorBody>
 		</DamageIndicatorWrapper>
 	);

@@ -20,4 +20,9 @@ export const CircleDiagramHand = styled.div<CircleDiagramRotableProps>`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	span {
+		transform: ${({ step, index }) =>
+			`rotate(-${calcRotateDeg(step, index)}deg)`};
+	}
 `;

@@ -1,5 +1,6 @@
 import { FC, SVGProps } from "react";
 import * as TYPE_ICONS from "../../icons/types";
+import { DamageMultiplierType } from "../../models";
 
 type SvgIco = FC<
 	SVGProps<SVGSVGElement> & {
@@ -50,4 +51,17 @@ export const getIconAndColor = (
 		default:
 			return { svg: TYPE_ICONS.Unknown, color: "#ffffff" };
 	}
+};
+
+export const getDamageRelationString = (
+	relation: DamageMultiplierType | null
+): string | null => {
+	if (relation !== null) {
+		return relation === DamageMultiplierType.X1_2
+			? String.fromCharCode(189)
+			: relation === DamageMultiplierType.X1_4
+			? String.fromCharCode(188)
+			: relation.toString();
+	}
+	return null;
 };
