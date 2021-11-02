@@ -9,4 +9,4 @@ export type ActionType =
 			payload: PokeApiTypeFull[];
 	  }
 	| { type: ReducerAction.CHANGE_SELECTED; payload: string }
-	| { type: ReducerAction.CHANGE_MODE; payload: string[] };
+	| { type: ReducerAction.CHANGE_MODE; payload: string };

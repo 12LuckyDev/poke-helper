@@ -1,4 +1,5 @@
 import { DamageRelation, PokeApiTypeFull } from "../../../../models";
+import { ModeType } from "../consts/modes";
 
 export type TypeDiagramStateType = {
 	types: PokeApiTypeFull[];
@@ -6,7 +7,7 @@ export type TypeDiagramStateType = {
 	error: boolean;
 	selected: string[];
 	damageRelations: DamageRelation[];
-	mode: string[];
+	mode: string;
 };
 
 export const initialState: TypeDiagramStateType = {
@@ -15,5 +16,5 @@ export const initialState: TypeDiagramStateType = {
 	error: false,
 	selected: [],
 	damageRelations: [],
-	mode: [],
+	mode: ModeType.DEFENCE,
 };

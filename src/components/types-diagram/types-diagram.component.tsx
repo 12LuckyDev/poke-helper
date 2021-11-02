@@ -3,16 +3,10 @@ import { CircleDiagram } from "../circle-diagram";
 import { DiagramSelectedTypes } from "./diagram-selected-types/diagram-selected-types.component";
 import { SelectedTypesRow } from "./selected-types-row/selected-types-row.component";
 import { TypeIcon } from "./types-diagram-icon/types-diagram-icon.component";
-import { useTypeDiagramData } from "./type-diagram-hook/use-type-diagram-data.";
+import { useTypeDiagramData } from "./type-diagram-hook/use-type-diagram-data";
 import { DamageRelationsIndicators } from "./damage-relations-indicators/damage-relations-indicators.component";
 import { ButtonsGroup } from "../buttons-group/buttons-group.component";
-
-// TODO
-// - Make selectable options with:
-// - attact - only one type selectable - shows attack bonusses
-// - defense - 2 types selectable - show combinantion weakness
-//
-// - fix center indicator font sizes on phones
+import { MODES } from "./type-diagram-hook/consts/modes";
 
 export const TypesDiagram: FC = () => {
 	const { state, isTypeSelected, handleTypeSelection, changeMode } =
@@ -22,13 +16,10 @@ export const TypesDiagram: FC = () => {
 		<main>
 			<SelectedTypesRow selected={selected} onCancel={handleTypeSelection} />
 			<ButtonsGroup
-				data={[
-					{ id: "ATTACK", text: "Attack" },
-					{ id: "DEFENCE", text: "Defence" },
-				]}
+				data={MODES}
 				idField="id"
 				textField="text"
-				value={mode}
+				value={[mode]}
 				onChange={changeMode}
 			/>
 

@@ -1,9 +1,10 @@
 import {
 	DamageMultiplierType,
 	DamageRelation,
-	mapPokeApiDamageRelationsToDamageRelationArray,
 	PokeApiTypeFull,
 } from "../../../../models";
+import { ModeType } from "../consts/modes";
+import { mapPokeApiDamageRelationsToDamageRelationArray } from "./poke-api-damage-ralations-to-damage-relation-array";
 
 const mergeMultipliers = (
 	first: DamageMultiplierType | null,
@@ -46,19 +47,33 @@ const mergeDamageRelations = (
 
 export const calcDamageRelations = (
 	types: PokeApiTypeFull[],
-	selected: string[]
+	selected: string[],
+	mode: string
 ): DamageRelation[] => {
 	const [firstType, secondType] = selected;
 
-	return mergeDamageRelations(
-		mapPokeApiDamageRelationsToDamageRelationArray(
-			types.find((t) => t.name === firstType)?.damage_relations
-		),
-		mapPokeApiDamageRelationsToDamageRelationArray(
-			types.find((t) => t.name === secondType)?.damage_relations
-		)
-	).map((dmg) => ({
-		...dmg,
-		typeIndex: types.findIndex(({ name }) => name === dmg.toType),
-	}));
+	if (mode) {
+		const relations =
+			mode === ModeType.DEFENCE
+				? mergeDamageRelations(
+						mapPokeApiDamageRelationsToDamageRelationArray(
+							ModeType.DEFENCE,
+							types.find((t) => t.name === firstType)?.damage_relations
+						),
+						mapPokeApiDamageRelationsToDamageRelationArray(
+							ModeType.DEFENCE,
+							types.find((t) => t.name === secondType)?.damage_relations
+						)
+				  )
+				: mapPokeApiDamageRelationsToDamageRelationArray(
+						ModeType.ATTACT,
+						types.find((t) => t.name === firstType)?.damage_relations
+				  );
+
+		return relations.map((dmg) => ({
+			...dmg,
+			typeIndex: types.findIndex(({ name }) => name === dmg.toType),
+		}));
+	}
+	return [];
 };

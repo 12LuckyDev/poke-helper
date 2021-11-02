@@ -8,5 +8,3 @@ export * from "./poke-api/poke-api-type-full";
 
 export * from "./ui/damage-relation";
 export * from "./ui/damage-multiplier-type";
-
-export * from "./mappers/poke-api-damage-ralations-to-damage-relation-array";

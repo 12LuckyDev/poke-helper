@@ -27,8 +27,12 @@ export const useTypeDiagramData = (): TypeDiagramHookResult => {
 	const handleTypeSelection = (name: string) =>
 		dispatch({ type: ReducerAction.CHANGE_SELECTED, payload: name });
 
-	const changeMode = (mode: string[]) =>
-		dispatch({ type: ReducerAction.CHANGE_MODE, payload: mode });
+	const changeMode = (modeArray: string[]) => {
+		const [mode] = modeArray;
+		if (mode) {
+			dispatch({ type: ReducerAction.CHANGE_MODE, payload: mode });
+		}
+	};
 
 	return {
 		state,

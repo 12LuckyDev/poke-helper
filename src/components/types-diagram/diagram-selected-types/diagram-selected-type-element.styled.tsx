@@ -11,7 +11,11 @@ export const DiagramSelectedTypeElement = styled.div<DiagramSelectedTypeElementP
 	justify-content: center;
 	flex: 1;
 	background-color: ${({ backgroundColor }) => backgroundColor};
-	font-size: 2.5rem;
+	font-size: 1.6rem;
 	text-transform: capitalize;
 	font-weight: bold;
+
+	@media (min-width: 768px) {
+		font-size: 2.5rem;
+	}
 `;
