@@ -37,5 +37,10 @@ export const typeDiagramDataReducer = (
 				selected,
 				damageRelations,
 			};
+		case ReducerAction.CHANGE_MODE:
+			return {
+				...state,
+				mode: action.payload,
+			};
 	}
 };

@@ -3,4 +3,5 @@ export enum ReducerAction {
 	SET_DATA_SUCCESS,
 	SET_DATA_ERROR,
 	CHANGE_SELECTED,
+	CHANGE_MODE,
 }

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { PRIMARY, SECONDARY } from "./colors";
 
 export const GlobalStyle = createGlobalStyle`
     html {
@@ -19,9 +20,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     main {
-        background-color: #282c34;
+        background-color: ${PRIMARY};
         min-height: 100vh;
-        color: white;
+        color: ${SECONDARY};
         overflow: auto;
     }
 

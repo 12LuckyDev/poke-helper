@@ -1,12 +1,5 @@
-import { FC, SVGProps } from "react";
 import * as TYPE_ICONS from "../../icons/types";
-import { DamageMultiplierType } from "../../models";
-
-type SvgIco = FC<
-	SVGProps<SVGSVGElement> & {
-		title?: string | undefined;
-	}
->;
+import { DamageMultiplierType, SvgIco } from "../../models";
 
 export const getIconAndColor = (
 	name: string

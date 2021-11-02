@@ -5,6 +5,7 @@ import { SelectedTypesRow } from "./selected-types-row/selected-types-row.compon
 import { TypeIcon } from "./types-diagram-icon/types-diagram-icon.component";
 import { useTypeDiagramData } from "./type-diagram-hook/use-type-diagram-data.";
 import { DamageRelationsIndicators } from "./damage-relations-indicators/damage-relations-indicators.component";
+import { ButtonsGroup } from "../buttons-group/buttons-group.component";
 
 // TODO
 // - Make selectable options with:
@@ -14,11 +15,22 @@ import { DamageRelationsIndicators } from "./damage-relations-indicators/damage-
 // - fix center indicator font sizes on phones
 
 export const TypesDiagram: FC = () => {
-	const { state, isTypeSelected, handleTypeSelection } = useTypeDiagramData();
-	const { types, selected, damageRelations } = state;
+	const { state, isTypeSelected, handleTypeSelection, changeMode } =
+		useTypeDiagramData();
+	const { types, selected, damageRelations, mode } = state;
 	return (
 		<main>
 			<SelectedTypesRow selected={selected} onCancel={handleTypeSelection} />
+			<ButtonsGroup
+				data={[
+					{ id: "ATTACK", text: "Attack" },
+					{ id: "DEFENCE", text: "Defence" },
+				]}
+				idField="id"
+				textField="text"
+				value={mode}
+				onChange={changeMode}
+			/>
 
 			{
 				<CircleDiagram

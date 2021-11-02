@@ -6,6 +6,7 @@ export type TypeDiagramStateType = {
 	error: boolean;
 	selected: string[];
 	damageRelations: DamageRelation[];
+	mode: string[];
 };
 
 export const initialState: TypeDiagramStateType = {
@@ -14,4 +15,5 @@ export const initialState: TypeDiagramStateType = {
 	error: false,
 	selected: [],
 	damageRelations: [],
+	mode: [],
 };

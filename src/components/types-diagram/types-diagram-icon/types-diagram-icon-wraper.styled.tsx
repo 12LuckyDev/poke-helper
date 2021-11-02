@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { SECONDARY } from "../../../styles/colors";
 import { TypeColorProps } from "../common/type-color.props";
 
 interface IconWrapperProps
@@ -20,15 +21,15 @@ export const IconWrapper = styled.div<IconWrapperProps>`
 	}
 
 	&:hover {
-		border: solid 3px #ffffff;
+		border: solid 3px ${SECONDARY};
 	}
 
 	${({ selected }) =>
 		selected &&
 		css`
-			border: solid 5px #ffffff;
+			border: solid 5px ${SECONDARY};
 			&:hover {
-				border: double 5px #ffffff;
+				border: double 5px ${SECONDARY};
 			}
 		`}
 `;
