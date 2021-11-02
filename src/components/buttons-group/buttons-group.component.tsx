@@ -1,6 +1,5 @@
 import { add, removeAt } from "@12luckydev/utils";
 import { PropsWithChildren } from "react";
-import { SvgIco } from "../../models";
 import { Button } from "../button/button.component";
 import { Row } from "../common-styled/row";
 
@@ -12,7 +11,6 @@ interface ButtonsGroupProps<T> {
 	onChange: (value: string[]) => void;
 	multiselect?: boolean;
 	deselect?: boolean;
-	icoExtractor?: (item: T, selected: boolean) => SvgIco;
 }
 
 export const ButtonsGroup = <T,>({
@@ -23,7 +21,6 @@ export const ButtonsGroup = <T,>({
 	onChange,
 	multiselect = false,
 	deselect = false,
-	icoExtractor,
 }: PropsWithChildren<ButtonsGroupProps<T>>) => {
 	const onClickHandler = (name?: string) => {
 		if (name) {
@@ -45,7 +42,7 @@ export const ButtonsGroup = <T,>({
 	};
 
 	return (
-		<Row>
+		<Row center>
 			{data.map((el) => {
 				const stringId = `${el[idField]}`;
 				const selected = value.includes(stringId);

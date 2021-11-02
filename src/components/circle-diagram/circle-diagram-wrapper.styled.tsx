@@ -13,7 +13,11 @@ export const CircleDiagramWrapper = styled.div`
 
 	@media only screen and (min-width: 768px) {
 		--size: calc(100vh - 150px);
-		margin: 50px auto;
+		margin: 15px auto;
+	}
+
+	@media only screen and (min-width: 992px) {
+		--size: calc(100vh - 100px);
 	}
 
 	position: relative;

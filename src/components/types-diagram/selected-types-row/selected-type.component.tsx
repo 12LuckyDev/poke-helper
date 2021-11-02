@@ -2,10 +2,8 @@ import { FC } from "react";
 import { Delete } from "../../../icons";
 import { getIconAndColor } from "../type-diagram.utils";
 import { IcoButtonWrapper } from "./ico-button-wrapper.styled";
-import {
-	SelectedTypeWrapper,
-	SelectedTypeIcoWrapper,
-} from "./selected-type-wrapper.styled";
+import { SelectedTypeIcoWrapper } from "./selected-type-ico-wrapper";
+import { SelectedTypeWrapper } from "./selected-type-wrapper.styled";
 
 interface SelectedTypeProps {
 	name: string;
